@@ -16,12 +16,13 @@ import java.util.List;
 import java.util.Map;
 
 public class OpenIdUtil {
-  private static final String STEAM_OPENID = "http://steamcommunity.com/openid";
+  private static final String STEAM_OPENID = "https://steamcommunity.com/openid";
   private static final ConsumerManager      manager;
   private static       DiscoveryInformation discovered;
 
   static {
     manager = new ConsumerManager();
+    manager.setMaxAssocAttempts(0);
     manager.setAssociations(new InMemoryConsumerAssociationStore());
     manager.setNonceVerifier(new InMemoryNonceVerifier(5000));
     manager.setMinAssocSessEnc(AssociationSessionType.DH_SHA256);

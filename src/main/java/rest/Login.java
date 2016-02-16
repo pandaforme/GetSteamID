@@ -21,7 +21,7 @@ public class Login {
 
   @GET
   public Response login() throws Exception {
-    final String login = OpenIdUtil.login("http://localhost:8080/steam/callback");
+    final String login = OpenIdUtil.login("http://localhost:8080/GetSteamID/callback");
 
     httpServletRequest.getSession().setAttribute("openid-disc", OpenIdUtil.getDiscovered());
     return Response.temporaryRedirect(new URI(login))
