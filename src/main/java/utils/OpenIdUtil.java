@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 public class OpenIdUtil {
-  private static final String STEAM_OPENID = "https://steamcommunity.com/openid";
+  private static final String STEAM_OPENID_PROVIDER = "http://steamcommunity.com/openid";
   private static final ConsumerManager      manager;
   private static       DiscoveryInformation discovered;
 
@@ -29,7 +29,7 @@ public class OpenIdUtil {
   }
 
   public static String login(String callbackUrl) throws Exception {
-    final List discover = manager.discover(STEAM_OPENID);
+    final List discover = manager.discover(STEAM_OPENID_PROVIDER);
     discovered = manager.associate(discover);
 
     AuthRequest authReq = manager.authenticate(discovered, callbackUrl);
